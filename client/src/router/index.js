@@ -5,6 +5,7 @@ import NewPC from '@/components/NewPC'
 import EditPC from '@/components/EditPC'
 import Login from '@/components/Login'
 import Register from '@/components/Registration'
+import Kereses from '@/components/Kereses'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/kereses',
+      name: 'Kereses',
+      component: Kereses
     }
   ]
 })

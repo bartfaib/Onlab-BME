@@ -57,27 +57,14 @@ routes.get('/:id', (req, res) => {
 // Update a PC
 
 routes.put('/:id', (req, res) => {
- /*mongoose.set('useFindAndModify', false);
-  PC.findbyIdAndUpdate(
-    { 'title': req.body.title }, 
-    { '$set': {'description': req.body.description} },
-    {'new': true },
-    function(err, PC) {
-        if (err) {
-          console.log('ERROR WHILE PUT EMAIL');
-            throw (err);
-        } else {
-            console.log('Succes set');
-            res.status(200).send(PC)
-        }
-    }
-  );*/
-  PC.findById(req.params.id, 'title description', function (error, pc) {
+  PC.findById(req.params.id, 'brand cpu memory type vga', function (error, pc) {
     if (error) { console.error(error); }
-
-    pc.title = req.body.title
-    pc.description = req.body.description
-    console.log(pc);
+    if(!!req.body.brand)pc.brand =req.body.brand
+    if(!!req.body.cpu)pc.cpu = req.body.cpu
+    if(!!req.body.memory)pc.memory = req.body.memory
+    if(!!req.body.type)pc.type = req.body.type
+    if(!!req.body.vga)pc.vga = req.body.vga
+    console.log(req.body.brand);
     pc.save(function (error) {
       if (error) {
         console.log(error)

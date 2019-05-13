@@ -10,7 +10,6 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-//  Connect all our routes to our application
 app.use('/pcs', index);
 app.use('/users', users);
 

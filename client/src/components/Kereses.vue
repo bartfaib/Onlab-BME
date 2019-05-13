@@ -27,25 +27,6 @@
         <td class="text-xs-left">{{ props.item.type }}</td>
         <td class="text-xs-left">{{ props.item.vga }}</td>
         <td class="text-xs-left">{{ props.item.score }}</td>
-        <td class="text-xs-left">
-         <v-btn dark v-bind:to="{ name: 'EditPC', params: { id: props.item._id } }">
-          <v-icon
-            small
-            class="mr-2"
-          >
-            edit
-          </v-icon>
-         </v-btn>
-        </td>
-        <td class="text-xs-left">
-         <v-btn dark @click="deletePC(props.item._id)">
-          <v-icon
-            small
-          >
-            delete
-          </v-icon>
-         </v-btn>
-        </td>
       </template>
         <template v-slot:no-data>
         <v-alert :value="true" color="red" icon="warning">
@@ -58,7 +39,6 @@
       <v-card>
       Jelenleg {{PCs.length}} van a renszerben.<br /><br />
       </v-card>
-      <v-btn dark v-bind:to="{ name: 'NewPC' }" class="add_PC_link">Számítógép Felvétele</v-btn>
     </div>
   </div>
 </template>
@@ -77,9 +57,7 @@ export default {
         { text: 'Memória', value: 'memory' },
         { text: 'Típus', value: 'type' },
         { text: 'Videókártya', value: 'vga' },
-        { text: 'Pont', value: 'score' },
-        { text: 'Szerkeztés', value: 'szerkeztes' },
-        { text: 'Törlés', value: 'torles' }
+        { text: 'Pont', value: 'score' }
       ],
       PCs: []
     }

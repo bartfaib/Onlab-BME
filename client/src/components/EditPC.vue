@@ -4,10 +4,19 @@
     <h1>Edit Post</h1>
       <div class="form">
         <div>
-          <input type="text" name="title" placeholder="TITLE" v-model="title">
+          <input type="text" name="title" placeholder="Márka" v-model="brand">
         </div>
         <div>
-          <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
+          <input type="text" name="title" placeholder="CPU" v-model="cpu">
+        </div>
+        <div>
+          <input type="number" name="title" placeholder="Memória" v-model="memory">
+        </div>
+        <div>
+          <input type="text" name="title" placeholder="Típus" v-model="type">
+        </div>
+        <div>
+          <input type="text" name="title" placeholder="Videókártya" v-model="vga">
         </div>
         <div>
           <button class="app_post_btn" @click="updatePC">Update</button>
@@ -22,8 +31,11 @@ export default {
   name: 'EditPost',
   data () {
     return {
-      title: '',
-      description: ''
+      brand: '',
+      cpu: '',
+      memory: '',
+      type: '',
+      vga: ''
     }
   },
   mounted () {
@@ -34,14 +46,20 @@ export default {
       const response = await PCsService.getPC({
         id: this.$route.params.id
       })
-      this.title = response.data.title
-      this.description = response.data.description
+      this.brand = response.data.brand
+      this.cpu = response.data.cpu
+      this.memory = response.data.memory
+      this.type = response.data.type
+      this.vga = response.data.vga
     },
     async updatePC () {
       await PCsService.updatePC({
         id: this.$route.params.id,
-        title: this.title,
-        description: this.description
+        brand: this.brand,
+        cpu: this.cpu,
+        memory: this.memory,
+        type: this.type,
+        vga: this.vga
       })
       this.$router.push({ name: 'PCs' })
     }

@@ -3,10 +3,22 @@
     <h1>Add PC</h1>
       <div class="form">
         <div>
-          <input type="text" name="title" placeholder="TITLE" v-model="title">
+          <input type="number" name="title" placeholder="Azonosító" v-model="id">
         </div>
         <div>
-          <textarea rows="15" cols="15" placeholder="DESCRIPTION" v-model="description"></textarea>
+          <input type="text" name="title" placeholder="Márka" v-model="brand">
+        </div>
+        <div>
+          <input type="text" name="title" placeholder="CPU" v-model="cpu">
+        </div>
+        <div>
+          <input type="number" name="title" placeholder="Memória" v-model="memory">
+        </div>
+        <div>
+          <input type="text" name="title" placeholder="Típus" v-model="type">
+        </div>
+                <div>
+          <input type="text" name="title" placeholder="Videókártya" v-model="vga">
         </div>
         <div>
           <button class="app_PC_btn" @click="addPC">Add</button>
